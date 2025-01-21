@@ -1,9 +1,15 @@
 Package: subfoldr2ext
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
-Authors@R: 
-    person("Duncan", "Kennedy", , "duncan@poissonconsulting.ca", role = c("aut", "cre"),
-           comment = c(ORCID = "0009-0001-4880-5751"))
+Authors@R: c(
+    person("Duncan", "Kennedy", , "duncan@poissonconsulting.ca", role = "aut",
+           comment = c(ORCID = "0009-0001-4880-5751")),
+    person("Joe", "Thorley", , "joe@poissonconsulting.ca", role = "aut",
+           comment = c(ORCID = "0000-0002-7683-4592")),
+    person("Ayla", "Pearson", , "ayla@poissonconsulting.ca", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7388-1222")),
+    person("Poisson Consulting", role = "cph")
+  )
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
