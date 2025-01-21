@@ -1,5 +1,5 @@
 Package: subfoldr2ext
-Title: What the Package Does (One Line, Title Case)
+Title: Extra Functions Related to subfoldr2
 Version: 0.0.0.9000
 Authors@R: c(
     person("Duncan", "Kennedy", , "duncan@poissonconsulting.ca", role = "aut",
@@ -10,11 +10,15 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-7388-1222")),
     person("Poisson Consulting", role = "cph")
   )
-Description: What the package does (one paragraph).
+Description: Extra or externally based functions that are related to functions in subfoldr2.
 License: MIT + file LICENSE
+URL: https://github.com/poissonconsulting/subfoldr2ext
+BugReports: https://github.com/poissonconsulting/subfoldr2ext/issues
+Language: en-US
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2.9000
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Config/Needs/website: poissonconsulting/poissontemplate
