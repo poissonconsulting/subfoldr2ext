@@ -4,6 +4,9 @@
 # subfoldr2ext
 
 <!-- badges: start -->
+
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit/)
 <!-- badges: end -->
 
 `subfoldr2ext` is an R package for extra or externally based functions
@@ -28,3 +31,18 @@ This is a basic example which shows you how to solve a common problem:
 library(subfoldr2ext)
 ## basic example code
 ```
+
+## Contribution
+
+Please report any
+[issues](https://github.com/poissonconsulting/subfoldr2ext/issues).
+
+[Pull requests](https://github.com/poissonconsulting/subfoldrext2/pulls)
+are always welcome.
+
+## Code of Conduct
+
+Please note that the `subfoldr2` project is released with a [Contributor
+Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
