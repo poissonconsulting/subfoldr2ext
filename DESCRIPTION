@@ -2,12 +2,12 @@ Package: subfoldr2ext
 Title: Extra Functions Related to subfoldr2
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Duncan", "Kennedy", , "duncan@poissonconsulting.ca", role = "aut",
-           comment = c(ORCID = "0009-0001-4880-5751")),
     person("Joe", "Thorley", , "joe@poissonconsulting.ca", role = "aut",
            comment = c(ORCID = "0000-0002-7683-4592")),
     person("Ayla", "Pearson", , "ayla@poissonconsulting.ca", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7388-1222")),
+    person("Duncan", "Kennedy", , "duncan@poissonconsulting.ca", role = "aut",
+           comment = c(ORCID = "0009-0001-4880-5751")),
     person("Poisson Consulting", role = "cph")
   )
 Description: Extra or externally based functions that are related to functions in subfoldr2.
