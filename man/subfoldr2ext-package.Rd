@@ -11,6 +11,7 @@ Extra or externally based functions that are related to functions in subfoldr2.
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://poissonconsulting.github.io/subfoldr2ext/}
   \item \url{https://github.com/poissonconsulting/subfoldr2ext}
   \item Report bugs at \url{https://github.com/poissonconsulting/subfoldr2ext/issues}
 }
