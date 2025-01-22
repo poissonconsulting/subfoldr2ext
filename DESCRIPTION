@@ -28,5 +28,8 @@ Imports:
     withr
 Suggests: 
     testthat (>= 3.0.0)
+Remotes:
+    poissonconsulting/psql,
+    poissonconsulting/subfoldr2
 Config/testthat/edition: 3
 Config/Needs/website: poissonconsulting/poissontemplate
