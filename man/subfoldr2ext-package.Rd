@@ -22,8 +22,8 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Duncan Kennedy \email{duncan@poissonconsulting.ca} (\href{https://orcid.org/0009-0001-4880-5751}{ORCID})
   \item Joe Thorley \email{joe@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-7683-4592}{ORCID})
+  \item Duncan Kennedy \email{duncan@poissonconsulting.ca} (\href{https://orcid.org/0009-0001-4880-5751}{ORCID})
 }
 
 Other contributors:
