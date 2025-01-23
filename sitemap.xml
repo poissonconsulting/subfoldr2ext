@@ -10,6 +10,24 @@
 <url><loc>https://poissonconsulting.github.io/subfoldr2ext/news/index.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/index.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/params.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_backup_pg.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_close_pg.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_create_pg.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_execute_pg.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_get_config_file.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_get_config_value.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_get_schema.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_list_tables_pg.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_load_data_from_pg.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_load_datas_from_pg.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_open_pg.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_reset_config_file.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_reset_config_value.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_reset_schema.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_save_data_to_pg.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_set_config_file.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_set_config_value.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/sbfx_set_schema.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/subfoldr2ext/reference/subfoldr2ext-package.html</loc></url>
 </urlset>
 
