@@ -63,6 +63,9 @@ Other postgresql functions:
 \code{\link{sbfx_set_config_file}()},
 \code{\link{sbfx_set_config_value}()},
 \code{\link{sbfx_set_schema}()}
+
+Other save functions: 
+\code{\link{sbfx_save_aws_files}()}
 }
 \concept{postgresql functions}
 \concept{save functions}

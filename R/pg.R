@@ -4,7 +4,7 @@
 #'
 #' @inheritParams psql::psql_connect
 #' @return An S4 object that inherits from DBIConnection.
-#' 
+#'
 #' @export
 #' @details Wrapper on `psql::psql_connect()`.
 #' @family postgresql functions
@@ -21,7 +21,7 @@
 #' sbfx_close_pg(conn)
 #' }
 sbfx_open_pg <- function(config_path = getOption("psql.config_path", NULL),
-                        config_value = getOption("psql.config_value", "default")) {
+                         config_value = getOption("psql.config_value", "default")) {
   conn <- psql::psql_connect(
     config_path = config_path,
     config_value = config_value
@@ -34,7 +34,7 @@ sbfx_open_pg <- function(config_path = getOption("psql.config_path", NULL),
 #'
 #' @inheritParams DBI::dbDisconnect
 #' @return TRUE (or errors).
-#' 
+#'
 #' @export
 #' @details Wrapper on `DBI::dbDisconnect()`. It is important to remember to
 #'   close connections or your database performance can decrease over time.
@@ -59,7 +59,7 @@ sbfx_close_pg <- function(conn) {
 #' @inheritParams subfoldr2::sbf_save_object
 #' @param db_dump_name A string of the name for the database backup file.
 #' @return TRUE (or errors).
-#' 
+#'
 #' @export
 #' @details Wrapper on `psql::psql_backup()`.
 #' @family postgresql functions
@@ -70,10 +70,10 @@ sbfx_close_pg <- function(conn) {
 #' sbfx_backup_pg("database-22")
 #' }
 sbfx_backup_pg <- function(db_dump_name = subfoldr2::sbf_get_db_name(),
-                          sub = subfoldr2::sbf_get_sub(),
-                          main = subfoldr2::sbf_get_main(),
-                          config_path = getOption("psql.config_path", NULL),
-                          config_value = getOption("psql.config_value", "default")) {
+                           sub = subfoldr2::sbf_get_sub(),
+                           main = subfoldr2::sbf_get_main(),
+                           config_path = getOption("psql.config_path", NULL),
+                           config_value = getOption("psql.config_value", "default")) {
   path <- file_name(main, "dbs", sub, db_dump_name, ext = "sql")
   psql::psql_backup(
     path = path,
@@ -88,7 +88,7 @@ sbfx_backup_pg <- function(db_dump_name = subfoldr2::sbf_get_db_name(),
 #'
 #' @inheritParams psql::psql_create_db
 #' @return TRUE (or errors).
-#' 
+#'
 #' @export
 #' @details Wrapper on `psql::psql_create_db()`.
 #' @family postgresql functions
@@ -99,8 +99,8 @@ sbfx_backup_pg <- function(db_dump_name = subfoldr2::sbf_get_db_name(),
 #' sbfx_create_pg("new_database", config_path = "keys/config.yml")
 #' }
 sbfx_create_pg <- function(dbname,
-                          config_path = getOption("psql.config_path", NULL),
-                          config_value = getOption("psql.config_value", "default")) {
+                           config_path = getOption("psql.config_path", NULL),
+                           config_value = getOption("psql.config_value", "default")) {
   psql::psql_create_db(
     dbname = dbname,
     config_path = config_path,
@@ -114,7 +114,7 @@ sbfx_create_pg <- function(dbname,
 #'
 #' @inheritParams psql::psql_execute_db
 #' @return A scalar numeric of the number of rows affected by the statement.
-#' 
+#'
 #' @export
 #' @details Wrapper on `psql::psql_execute_db()`.
 #' @family postgresql functions
@@ -122,7 +122,7 @@ sbfx_create_pg <- function(dbname,
 #' @examples
 #' \dontrun{
 #' sbfx_execute_pg("CREATE SCHEMA boat_count")
-#' 
+#'
 #' sbfx_execute_pg(
 #'   "CREATE TABLE boat_count.input (
 #'   file_name TEXT NOT NULL,
@@ -130,8 +130,8 @@ sbfx_create_pg <- function(dbname,
 #' )
 #' }
 sbfx_execute_pg <- function(sql,
-                           config_path = getOption("psql.config_path", NULL),
-                           config_value = getOption("psql.config_value", "default")) {
+                            config_path = getOption("psql.config_path", NULL),
+                            config_value = getOption("psql.config_value", "default")) {
   psql::psql_execute_db(
     sql = sql,
     config_path = config_path,
@@ -145,7 +145,7 @@ sbfx_execute_pg <- function(sql,
 #'
 #' @inheritParams psql::psql_list_tables
 #' @return A vector of table names.
-#' 
+#'
 #' @export
 #' @details Wrapper on `psql::psql_list_tables()`.
 #' @family postgresql functions
@@ -156,8 +156,8 @@ sbfx_execute_pg <- function(sql,
 #' sbfx_list_tables_pg("boat_count")
 #' }
 sbfx_list_tables_pg <- function(schema = getOption("psql.schema", "public"),
-                               config_path = getOption("psql.config_path", NULL),
-                               config_value = getOption("psql.config_value", "default")) {
+                                config_path = getOption("psql.config_path", NULL),
+                                config_value = getOption("psql.config_value", "default")) {
   psql::psql_list_tables(
     schema = schema,
     config_path = config_path,
@@ -172,7 +172,7 @@ sbfx_list_tables_pg <- function(schema = getOption("psql.schema", "public"),
 #' @inheritParams psql::psql_read_table
 #' @param x A string of the table name.
 #' @return A data frame.
-#' 
+#'
 #' @export
 #' @details Wrapper on `psql::psql_read_table()`.
 #' @family postgresql functions
@@ -184,9 +184,9 @@ sbfx_list_tables_pg <- function(schema = getOption("psql.schema", "public"),
 #' sbfx_load_data_from_pg("counts", "boat_count")
 #' }
 sbfx_load_data_from_pg <- function(x,
-                                  schema = getOption("psql.schema", "public"),
-                                  config_path = getOption("psql.config_path", NULL),
-                                  config_value = getOption("psql.config_value", "default")) {
+                                   schema = getOption("psql.schema", "public"),
+                                   config_path = getOption("psql.config_path", NULL),
+                                   config_value = getOption("psql.config_value", "default")) {
   psql::psql_read_table(
     tbl_name = x,
     schema = schema,
@@ -202,7 +202,7 @@ sbfx_load_data_from_pg <- function(x,
 #' @inheritParams subfoldr2::sbf_load_objects
 #' @inheritParams psql::psql_list_tables
 #' @return An invisible character vector of the paths to the saved objects.
-#' 
+#'
 #' @export
 #' @family postgresql functions
 #' @family load functions
@@ -214,13 +214,13 @@ sbfx_load_data_from_pg <- function(x,
 #' sbfx_load_datas_from_pg(rename = toupper)
 #' }
 sbfx_load_datas_from_pg <- function(schema = getOption("psql.schema", "public"),
-                                   rename = identity,
-                                   env = parent.frame(),
-                                   config_path = getOption("psql.config_path", NULL),
-                                   config_value = getOption("psql.config_value", "default")) {
+                                    rename = identity,
+                                    env = parent.frame(),
+                                    config_path = getOption("psql.config_path", NULL),
+                                    config_value = getOption("psql.config_value", "default")) {
   chk::chk_s3_class(env, "environment")
   chk::chk_function(rename)
-  
+
   tbl_names <- psql::psql_list_tables(
     schema = schema,
     config_path = config_path,
@@ -248,7 +248,7 @@ sbfx_load_datas_from_pg <- function(schema = getOption("psql.schema", "public"),
 #' @inheritParams psql::psql_add_data
 #' @inheritParams subfoldr2::sbf_save_data
 #' @return A scalar numeric.
-#' 
+#'
 #' @export
 #' @details Wrapper on `psql::psql_add_data()`.
 #' @family postgresql functions
@@ -260,10 +260,10 @@ sbfx_load_datas_from_pg <- function(schema = getOption("psql.schema", "public"),
 #' sbfx_save_data_to_pg(outing_new, "creel", "outing")
 #' }
 sbfx_save_data_to_pg <- function(x,
-                                x_name = NULL,
-                                schema = getOption("psql.schema", "public"),
-                                config_path = getOption("psql.config_path", NULL),
-                                config_value = getOption("psql.config_value", "default")) {
+                                 x_name = NULL,
+                                 schema = getOption("psql.schema", "public"),
+                                 config_path = getOption("psql.config_path", NULL),
+                                 config_value = getOption("psql.config_value", "default")) {
   if (is.null(x_name)) x_name <- deparse(substitute(x))
   psql::psql_add_data(
     tbl = x,
@@ -278,7 +278,7 @@ sbfx_save_data_to_pg <- function(x,
 #'
 #' @param schema A string of the schema name. Default value is `"public"`.
 #' @return An invisible schema name.
-#' 
+#'
 #' @export
 #' @family postgresql functions
 #'
@@ -295,7 +295,7 @@ sbfx_set_schema <- function(schema = "public") {
 #' Get schema name
 #'
 #' @return A string of the schema name.
-#' 
+#'
 #' @export
 #' @family postgresql functions
 #'
@@ -312,7 +312,7 @@ sbfx_get_schema <- function() {
 #' Reset schema name back to public
 #'
 #' @return An invisible string of the schema name the database is set to.
-#' 
+#'
 #' @export
 #' @family postgresql functions
 #'
@@ -331,7 +331,7 @@ sbfx_reset_schema <- function() {
 #' @param path A file path to the location of the yaml file containing your
 #'   connection details.
 #' @return An invisible string of the file path given.
-#' 
+#'
 #' @export
 #' @details This function is recommended to be added to your header when used.
 #' @family postgresql functions
@@ -352,7 +352,7 @@ sbfx_set_config_file <- function(path = "config.yml") {
 #' Get the option set for `psql.config_path`.
 #'
 #' @return A string of the config file path.
-#' 
+#'
 #' @export
 #' @family postgresql functions
 #'
@@ -369,7 +369,7 @@ sbfx_get_config_file <- function() {
 #' Reset the `psql.config_path` option to the default value.
 #'
 #' @return An invisible string of the default file path.
-#' 
+#'
 #' @export
 #' @family postgresql functions
 #'
@@ -387,7 +387,7 @@ sbfx_reset_config_file <- function() {
 #'
 #' @param value A string of the config file value to grab.
 #' @return An invisible string of the value given.
-#' 
+#'
 #' @export
 #' @details This function is recommended to be added to your header when used.
 #' @family postgresql functions
@@ -407,7 +407,7 @@ sbfx_set_config_value <- function(value = NULL) {
 #' Get the value set for the `psql.config_value` options parameter.
 #'
 #' @return A string of the config file value.
-#' 
+#'
 #' @export
 #' @family postgresql functions
 #'
@@ -424,7 +424,7 @@ sbfx_get_config_value <- function() {
 #' Reset the value for `psql.config_value` to the default value.
 #'
 #' @return An invisible string of the default file path.
-#' 
+#'
 #' @export
 #' @family postgresql functions
 #'

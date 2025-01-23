@@ -23,6 +23,8 @@ Imports:
     config,
     DBI,
     psql,
+    readwriteaws,
+    rlang,
     RPostgres,
     subfoldr2,
     withr
@@ -30,6 +32,7 @@ Suggests:
     testthat (>= 3.0.0)
 Remotes:
     poissonconsulting/psql,
+    poissonconsulting/readwriteaws,
     poissonconsulting/subfoldr2
 Config/testthat/edition: 3
 Config/Needs/website: poissonconsulting/poissontemplate

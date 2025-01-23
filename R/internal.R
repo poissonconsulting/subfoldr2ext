@@ -6,7 +6,7 @@ file_name <- function(main, class, sub, x_name, ext) {
   if (!identical(ext, tools::file_ext(x_name))) {
     file <- paste0(file, ".", ext)
   }
-  
+
   file
 }
 
