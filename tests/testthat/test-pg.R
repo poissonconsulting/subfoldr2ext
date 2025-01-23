@@ -15,35 +15,35 @@
 # 3. Now try connecting again, with the psql command:
 # `psql`
 
-test_that("test sbf_open_pg works", {
+test_that("test sbfx_open_pg works", {
   skip_on_ci()
   # set up
   withr::defer(DBI::dbDisconnect(conn))
   # tests
-  conn <- sbf_open_pg(config_path = NULL, config_value = "default")
+  conn <- sbfx_open_pg(config_path = NULL, config_value = "default")
   expect_s4_class(conn, "PqConnection")
 })
 
-test_that("test sbf_close_pg works", {
+test_that("test sbfx_close_pg works", {
   skip_on_ci()
   # set up
   withr::defer(suppressWarnings(DBI::dbDisconnect(conn)))
   conn <- local_connection_default()
   # tests
-  sbf_close_pg(conn)
+  sbfx_close_pg(conn)
   expect_error(
     DBI::dbExecute(conn, "SELECT 1+1;"),
     regexp = "bad_weak_ptr"
   )
 })
 
-test_that("test sbf_backup_pg works", {
+test_that("test sbfx_backup_pg works", {
   skip_on_ci()
   # set up
   config_path <- create_local_database()
   temp_dir <- withr::local_tempdir()
   # tests
-  sbf_backup_pg(
+  sbfx_backup_pg(
     db_dump_name = "dump_db1",
     main = temp_dir,
     config_path = config_path
@@ -51,22 +51,22 @@ test_that("test sbf_backup_pg works", {
   expect_true(file.exists(file.path(temp_dir, "dbs", "dump_db1.sql")))
 })
 
-test_that("test sbf_create_pg works", {
+test_that("test sbfx_create_pg works", {
   skip_on_ci()
   # set up
   clean_up_db("newdb")
   # tests
-  output <- sbf_create_pg("newdb", NULL, "default")
+  output <- sbfx_create_pg("newdb", NULL, "default")
   expect_true(output)
 })
 
-test_that("test sbf_execute_pg works", {
+test_that("test sbfx_execute_pg works", {
   skip_on_ci()
   # set up
   local_config <- create_local_database()
   clean_up_schema(local_config)
   # test
-  output <- sbf_execute_pg(
+  output <- sbfx_execute_pg(
     "CREATE SCHEMA boat_count",
     config_path = local_config
   )
@@ -75,26 +75,26 @@ test_that("test sbf_execute_pg works", {
   expect_true("boat_count" %in% schema_info$schema_name)
 })
 
-test_that("test sbf_list_tables_pg works", {
+test_that("test sbfx_list_tables_pg works", {
   skip_on_ci()
   # set up
   outing <- data.frame(x = 1:5, y = 6:10)
   local_config <- create_local_database(schema = "boat_count", table = outing)
   # test
-  output <- sbf_list_tables_pg(
+  output <- sbfx_list_tables_pg(
     "boat_count",
     config_path = local_config
   )
   expect_equal(output, "outing")
 })
 
-test_that("test sbf_load_data_from_pg works", {
+test_that("test sbfx_load_data_from_pg works", {
   skip_on_ci()
   # set up
   outing <- data.frame(x = 1:5, y = 6:10)
   local_config <- create_local_database(schema = "boat_count", table = outing)
   # tests
-  output <- sbf_load_data_from_pg(
+  output <- sbfx_load_data_from_pg(
     x = "outing",
     schema = "boat_count",
     config_path = local_config
@@ -103,14 +103,14 @@ test_that("test sbf_load_data_from_pg works", {
   expect_s3_class(output, "data.frame")
 })
 
-test_that("checking sbf_load_datas_from_pg pulls data from tables", {
+test_that("checking sbfx_load_datas_from_pg pulls data from tables", {
   skip_on_ci()
   # set up
   outing <- data.frame(x = c(1:5), y = c(5:9))
   local_config <- create_local_database(schema = "boat_count", table = outing)
   outing_dat <- rename_and_remove_data(outing)
   # tests
-  output <- sbf_load_datas_from_pg(
+  output <- sbfx_load_datas_from_pg(
     "boat_count",
     config_path = local_config
   )
@@ -118,13 +118,13 @@ test_that("checking sbf_load_datas_from_pg pulls data from tables", {
   expect_equal(outing, outing_dat)
 })
 
-test_that("checking sbf_load_datas_from_pg pulls tables and renames them", {
+test_that("checking sbfx_load_datas_from_pg pulls tables and renames them", {
   skip_on_ci()
   # set up
   outing <- data.frame(x = c(1:5), y = c(5:9))
   local_config <- create_local_database(schema = "boat_count", table = outing)
   # tests
-  output <- sbf_load_datas_from_pg(
+  output <- sbfx_load_datas_from_pg(
     "boat_count",
     rename = toupper,
     config_path = local_config
@@ -133,7 +133,7 @@ test_that("checking sbf_load_datas_from_pg pulls tables and renames them", {
   expect_equal(OUTING, outing)
 })
 
-test_that("test sbf_save_data_to_pg works when no x_name passed", {
+test_that("test sbfx_save_data_to_pg works when no x_name passed", {
   skip_on_ci()
   # set up
   outing <- data.frame(x = 1:5, y = 6:10)
@@ -143,7 +143,7 @@ test_that("test sbf_save_data_to_pg works when no x_name passed", {
     data = FALSE
   )
   # tests
-  output <- sbf_save_data_to_pg(
+  output <- sbfx_save_data_to_pg(
     x = outing,
     schema = "boat_count",
     config_path = local_config
@@ -153,7 +153,7 @@ test_that("test sbf_save_data_to_pg works when no x_name passed", {
   expect_equal(query, outing)
 })
 
-test_that("test sbf_save_data_to_pg works with x_name passed", {
+test_that("test sbfx_save_data_to_pg works with x_name passed", {
   skip_on_ci()
   # set up
   outing <- data.frame(x = 1:5, y = 6:10)
@@ -164,7 +164,7 @@ test_that("test sbf_save_data_to_pg works with x_name passed", {
   )
   # tests
   outing_new <- data.frame(x = 1:2, y = 2:3)
-  output <- sbf_save_data_to_pg(
+  output <- sbfx_save_data_to_pg(
     x = outing_new,
     schema = "boat_count",
     x_name = "outing",
@@ -177,45 +177,45 @@ test_that("test sbf_save_data_to_pg works with x_name passed", {
 
 test_that("set and get schema", {
   schema <- "trucks"
-  sbf_set_schema(schema)
-  set_schema <- sbf_get_schema()
+  sbfx_set_schema(schema)
+  set_schema <- sbfx_get_schema()
   expect_equal(set_schema, schema)
 })
 
 test_that("reset schema", {
   schema <- "trucks"
-  sbf_set_schema(schema)
-  sbf_reset_schema()
-  set_schema <- sbf_get_schema()
+  sbfx_set_schema(schema)
+  sbfx_reset_schema()
+  set_schema <- sbfx_get_schema()
   expect_equal(set_schema, "public")
 })
 
 test_that("set and get config file path", {
   path <- "~/Keys/config.yml"
-  sbf_set_config_file(path)
-  set_path <- sbf_get_config_file()
+  sbfx_set_config_file(path)
+  set_path <- sbfx_get_config_file()
   expect_equal(set_path, path)
 })
 
 test_that("reset config file path", {
   path <- "~/Keys/config.yml"
-  sbf_set_config_file(path)
-  sbf_reset_config_file()
-  set_path <- sbf_get_config_file()
+  sbfx_set_config_file(path)
+  sbfx_reset_config_file()
+  set_path <- sbfx_get_config_file()
   expect_equal(set_path, "config.yml")
 })
 
 test_that("set and get config file value", {
   value <- "database"
-  sbf_set_config_value(value)
-  set_value <- sbf_get_config_value()
+  sbfx_set_config_value(value)
+  set_value <- sbfx_get_config_value()
   expect_equal(set_value, value)
 })
 
 test_that("reset config file value", {
   value <- "database"
-  sbf_set_config_value(value)
-  sbf_reset_config_value()
-  set_value <- sbf_get_config_value()
+  sbfx_set_config_value(value)
+  sbfx_reset_config_value()
+  set_value <- sbfx_get_config_value()
   expect_equal(set_value, "default")
 })

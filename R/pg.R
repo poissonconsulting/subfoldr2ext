@@ -11,16 +11,16 @@
 #'
 #' @examples
 #' \dontrun{
-#' conn <- sbf_open_pg()
-#' sbf_close_pg(conn)
+#' conn <- sbfx_open_pg()
+#' sbfx_close_pg(conn)
 #'
-#' sbf_open_pg("config.yml")
-#' sbf_close_pg(conn)
+#' sbfx_open_pg("config.yml")
+#' sbfx_close_pg(conn)
 #'
-#' sbf_open_pg(config_path = "config.yml", config_value = "database")
-#' sbf_close_pg(conn)
+#' sbfx_open_pg(config_path = "config.yml", config_value = "database")
+#' sbfx_close_pg(conn)
 #' }
-sbf_open_pg <- function(config_path = getOption("psql.config_path", NULL),
+sbfx_open_pg <- function(config_path = getOption("psql.config_path", NULL),
                         config_value = getOption("psql.config_value", "default")) {
   conn <- psql::psql_connect(
     config_path = config_path,
@@ -42,10 +42,10 @@ sbf_open_pg <- function(config_path = getOption("psql.config_path", NULL),
 #'
 #' @examples
 #' \dontrun{
-#' conn <- sbf_open_pg()
-#' sbf_close_pg(conn)
+#' conn <- sbfx_open_pg()
+#' sbfx_close_pg(conn)
 #' }
-sbf_close_pg <- function(conn) {
+sbfx_close_pg <- function(conn) {
   DBI::dbDisconnect(conn = conn)
   TRUE
 }
@@ -66,10 +66,10 @@ sbf_close_pg <- function(conn) {
 #'
 #' @examples
 #' \dontrun{
-#' sbf_backup_pg()
-#' sbf_backup_pg("database-22")
+#' sbfx_backup_pg()
+#' sbfx_backup_pg("database-22")
 #' }
-sbf_backup_pg <- function(db_dump_name = subfoldr2::sbf_get_db_name(),
+sbfx_backup_pg <- function(db_dump_name = subfoldr2::sbf_get_db_name(),
                           sub = subfoldr2::sbf_get_sub(),
                           main = subfoldr2::sbf_get_main(),
                           config_path = getOption("psql.config_path", NULL),
@@ -95,10 +95,10 @@ sbf_backup_pg <- function(db_dump_name = subfoldr2::sbf_get_db_name(),
 #'
 #' @examples
 #' \dontrun{
-#' sbf_create_pg("new_database")
-#' sbf_create_pg("new_database", config_path = "keys/config.yml")
+#' sbfx_create_pg("new_database")
+#' sbfx_create_pg("new_database", config_path = "keys/config.yml")
 #' }
-sbf_create_pg <- function(dbname,
+sbfx_create_pg <- function(dbname,
                           config_path = getOption("psql.config_path", NULL),
                           config_value = getOption("psql.config_value", "default")) {
   psql::psql_create_db(
@@ -121,15 +121,15 @@ sbf_create_pg <- function(dbname,
 #'
 #' @examples
 #' \dontrun{
-#' sbf_execute_pg("CREATE SCHEMA boat_count")
+#' sbfx_execute_pg("CREATE SCHEMA boat_count")
 #' 
-#' sbf_execute_pg(
+#' sbfx_execute_pg(
 #'   "CREATE TABLE boat_count.input (
 #'   file_name TEXT NOT NULL,
 #'   comment TEXT)"
 #' )
 #' }
-sbf_execute_pg <- function(sql,
+sbfx_execute_pg <- function(sql,
                            config_path = getOption("psql.config_path", NULL),
                            config_value = getOption("psql.config_value", "default")) {
   psql::psql_execute_db(
@@ -152,10 +152,10 @@ sbf_execute_pg <- function(sql,
 #'
 #' @examples
 #' \dontrun{
-#' sbf_list_tables_pg()
-#' sbf_list_tables_pg("boat_count")
+#' sbfx_list_tables_pg()
+#' sbfx_list_tables_pg("boat_count")
 #' }
-sbf_list_tables_pg <- function(schema = getOption("psql.schema", "public"),
+sbfx_list_tables_pg <- function(schema = getOption("psql.schema", "public"),
                                config_path = getOption("psql.config_path", NULL),
                                config_value = getOption("psql.config_value", "default")) {
   psql::psql_list_tables(
@@ -180,10 +180,10 @@ sbf_list_tables_pg <- function(schema = getOption("psql.schema", "public"),
 #'
 #' @examples
 #' \dontrun{
-#' sbf_load_data_from_pg("capture")
-#' sbf_load_data_from_pg("counts", "boat_count")
+#' sbfx_load_data_from_pg("capture")
+#' sbfx_load_data_from_pg("counts", "boat_count")
 #' }
-sbf_load_data_from_pg <- function(x,
+sbfx_load_data_from_pg <- function(x,
                                   schema = getOption("psql.schema", "public"),
                                   config_path = getOption("psql.config_path", NULL),
                                   config_value = getOption("psql.config_value", "default")) {
@@ -209,11 +209,11 @@ sbf_load_data_from_pg <- function(x,
 #'
 #' @examples
 #' \dontrun{
-#' sbf_load_datas_from_pg()
-#' sbf_load_datas_from_pg(schema = "capture")
-#' sbf_load_datas_from_pg(rename = toupper)
+#' sbfx_load_datas_from_pg()
+#' sbfx_load_datas_from_pg(schema = "capture")
+#' sbfx_load_datas_from_pg(rename = toupper)
 #' }
-sbf_load_datas_from_pg <- function(schema = getOption("psql.schema", "public"),
+sbfx_load_datas_from_pg <- function(schema = getOption("psql.schema", "public"),
                                    rename = identity,
                                    env = parent.frame(),
                                    config_path = getOption("psql.config_path", NULL),
@@ -256,10 +256,10 @@ sbf_load_datas_from_pg <- function(schema = getOption("psql.schema", "public"),
 #'
 #' @examples
 #' \dontrun{
-#' sbf_save_data_to_pg(outing, "creel")
-#' sbf_save_data_to_pg(outing_new, "creel", "outing")
+#' sbfx_save_data_to_pg(outing, "creel")
+#' sbfx_save_data_to_pg(outing_new, "creel", "outing")
 #' }
-sbf_save_data_to_pg <- function(x,
+sbfx_save_data_to_pg <- function(x,
                                 x_name = NULL,
                                 schema = getOption("psql.schema", "public"),
                                 config_path = getOption("psql.config_path", NULL),
@@ -284,9 +284,9 @@ sbf_save_data_to_pg <- function(x,
 #'
 #' @examples
 #' \dontrun{
-#' sbf_set_schema("capture")
+#' sbfx_set_schema("capture")
 #' }
-sbf_set_schema <- function(schema = "public") {
+sbfx_set_schema <- function(schema = "public") {
   chk::chk_string(schema)
   options(psql.schema = schema)
   invisible(schema)
@@ -301,9 +301,9 @@ sbf_set_schema <- function(schema = "public") {
 #'
 #' @examples
 #' \dontrun{
-#' sbf_get_schema()
+#' sbfx_get_schema()
 #' }
-sbf_get_schema <- function() {
+sbfx_get_schema <- function() {
   getOption("psql.schema", character(0))
 }
 
@@ -318,10 +318,10 @@ sbf_get_schema <- function() {
 #'
 #' @examples
 #' \dontrun{
-#' sbf_reset_schema()
+#' sbfx_reset_schema()
 #' }
-sbf_reset_schema <- function() {
-  invisible(sbf_set_schema())
+sbfx_reset_schema <- function() {
+  invisible(sbfx_set_schema())
 }
 
 #' Set config file path
@@ -338,10 +338,10 @@ sbf_reset_schema <- function() {
 #'
 #' @examples
 #' \dontrun{
-#' sbf_set_config_file()
-#' sbf_set_config_file("Keys/config-captures.yml")
+#' sbfx_set_config_file()
+#' sbfx_set_config_file("Keys/config-captures.yml")
 #' }
-sbf_set_config_file <- function(path = "config.yml") {
+sbfx_set_config_file <- function(path = "config.yml") {
   chk::chk_string(path)
   options(psql.config_path = path)
   invisible(path)
@@ -358,9 +358,9 @@ sbf_set_config_file <- function(path = "config.yml") {
 #'
 #' @examples
 #' \dontrun{
-#' sbf_get_config_file()
+#' sbfx_get_config_file()
 #' }
-sbf_get_config_file <- function() {
+sbfx_get_config_file <- function() {
   getOption("psql.config_path", character(0))
 }
 
@@ -375,10 +375,10 @@ sbf_get_config_file <- function() {
 #'
 #' @examples
 #' \dontrun{
-#' sbf_reset_config_file()
+#' sbfx_reset_config_file()
 #' }
-sbf_reset_config_file <- function() {
-  invisible(sbf_set_config_file())
+sbfx_reset_config_file <- function() {
+  invisible(sbfx_set_config_file())
 }
 
 #' Set config value
@@ -394,9 +394,9 @@ sbf_reset_config_file <- function() {
 #'
 #' @examples
 #' \dontrun{
-#' sbf_set_config_value("shinyapp")
+#' sbfx_set_config_value("shinyapp")
 #' }
-sbf_set_config_value <- function(value = NULL) {
+sbfx_set_config_value <- function(value = NULL) {
   chk::chk_null_or(value, vld = chk::vld_string)
   options(psql.config_value = value)
   invisible(value)
@@ -413,9 +413,9 @@ sbf_set_config_value <- function(value = NULL) {
 #'
 #' @examples
 #' \dontrun{
-#' sbf_get_config_value()
+#' sbfx_get_config_value()
 #' }
-sbf_get_config_value <- function() {
+sbfx_get_config_value <- function() {
   getOption("psql.config_value", "default")
 }
 
@@ -430,8 +430,8 @@ sbf_get_config_value <- function() {
 #'
 #' @examples
 #' \dontrun{
-#' sbf_reset_config_value()
+#' sbfx_reset_config_value()
 #' }
-sbf_reset_config_value <- function() {
-  invisible(sbf_set_config_value())
+sbfx_reset_config_value <- function() {
+  invisible(sbfx_set_config_value())
 }
