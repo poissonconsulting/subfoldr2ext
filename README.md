@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/poissonconsulting/subfoldr2ext/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/subfoldr2ext/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/subfoldr2ext/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/subfoldr2ext)
