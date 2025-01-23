@@ -9,7 +9,7 @@
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/subfoldr2ext/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/subfoldr2ext)
 [![License:
-MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit/)
+MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit)
 <!-- badges: end -->
 
 `subfoldr2ext` is an R package for extra or externally based functions
@@ -35,7 +35,7 @@ remotes::install_github("poissonconsulting/subfoldr2ext")
 Please report any
 [issues](https://github.com/poissonconsulting/subfoldr2ext/issues).
 
-[Pull requests](https://github.com/poissonconsulting/subfoldrext2/pulls)
+[Pull requests](https://github.com/poissonconsulting/subfoldr2ext/pulls)
 are always welcome.
 
 ## Code of Conduct
