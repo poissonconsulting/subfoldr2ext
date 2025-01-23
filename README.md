@@ -26,6 +26,10 @@ To install the latest development version from the GitHub
 remotes::install_github("poissonconsulting/subfoldr2ext")
 ```
 
+## Inspiration
+
+- [subfoldr2](https://github.com/poissonconsulting/subfoldr2)
+
 ## Contribution
 
 Please report any
