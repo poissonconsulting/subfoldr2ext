@@ -26,15 +26,6 @@ To install the latest development version from the GitHub
 remotes::install_github("poissonconsulting/subfoldr2ext")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(subfoldr2ext)
-## basic example code
-```
-
 ## Contribution
 
 Please report any
