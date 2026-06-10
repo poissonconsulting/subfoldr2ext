@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# subfoldr2ext 0.1.0.9000 (2026-06-10)
+
+- Add/correct author ORCID(s) in DESCRIPTION (#3).
+- Add CODEOWNERS assigning @aylapear (#2).
+
 # subfoldr2ext 0.1.0
 
 - Moved extra functions from `subfoldr2` to `subfoldr2ext`.
