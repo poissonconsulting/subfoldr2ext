@@ -1,5 +1,10 @@
 # Changelog
 
+## subfoldr2ext 0.1.0.9001 (2026-06-18)
+
+- Add fledge-bump workflow
+- Add fledge-tag-on-merge workflow
+
 ## subfoldr2ext 0.1.0.9000 (2026-06-10)
 
 - Add/correct author ORCID(s) in DESCRIPTION
