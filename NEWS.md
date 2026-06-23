@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# subfoldr2ext 0.1.0.9002 (2026-06-23)
+
+- Same as previous version.
+
+
 # subfoldr2ext 0.1.0.9001 (2026-06-18)
 
 * Add fledge-bump workflow
