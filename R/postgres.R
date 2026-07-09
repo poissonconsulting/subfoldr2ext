@@ -20,8 +20,10 @@
 #' sbfx_open_pg(config_path = "config.yml", config_value = "database")
 #' sbfx_close_pg(conn)
 #' }
-sbfx_open_pg <- function(config_path = getOption("psql.config_path", NULL),
-                         config_value = getOption("psql.config_value", "default")) {
+sbfx_open_pg <- function(
+  config_path = getOption("psql.config_path", NULL),
+  config_value = getOption("psql.config_value", "default")
+) {
   conn <- psql::psql_connect(
     config_path = config_path,
     config_value = config_value
@@ -69,11 +71,13 @@ sbfx_close_pg <- function(conn) {
 #' sbfx_backup_pg()
 #' sbfx_backup_pg("database-22")
 #' }
-sbfx_backup_pg <- function(db_dump_name = subfoldr2::sbf_get_db_name(),
-                           sub = subfoldr2::sbf_get_sub(),
-                           main = subfoldr2::sbf_get_main(),
-                           config_path = getOption("psql.config_path", NULL),
-                           config_value = getOption("psql.config_value", "default")) {
+sbfx_backup_pg <- function(
+  db_dump_name = subfoldr2::sbf_get_db_name(),
+  sub = subfoldr2::sbf_get_sub(),
+  main = subfoldr2::sbf_get_main(),
+  config_path = getOption("psql.config_path", NULL),
+  config_value = getOption("psql.config_value", "default")
+) {
   path <- file_name(main, "dbs", sub, db_dump_name, ext = "sql")
   psql::psql_backup(
     path = path,
@@ -98,9 +102,11 @@ sbfx_backup_pg <- function(db_dump_name = subfoldr2::sbf_get_db_name(),
 #' sbfx_create_pg("new_database")
 #' sbfx_create_pg("new_database", config_path = "keys/config.yml")
 #' }
-sbfx_create_pg <- function(dbname,
-                           config_path = getOption("psql.config_path", NULL),
-                           config_value = getOption("psql.config_value", "default")) {
+sbfx_create_pg <- function(
+  dbname,
+  config_path = getOption("psql.config_path", NULL),
+  config_value = getOption("psql.config_value", "default")
+) {
   psql::psql_create_db(
     dbname = dbname,
     config_path = config_path,
@@ -129,9 +135,11 @@ sbfx_create_pg <- function(dbname,
 #'   comment TEXT)"
 #' )
 #' }
-sbfx_execute_pg <- function(sql,
-                            config_path = getOption("psql.config_path", NULL),
-                            config_value = getOption("psql.config_value", "default")) {
+sbfx_execute_pg <- function(
+  sql,
+  config_path = getOption("psql.config_path", NULL),
+  config_value = getOption("psql.config_value", "default")
+) {
   psql::psql_execute_db(
     sql = sql,
     config_path = config_path,
@@ -155,9 +163,11 @@ sbfx_execute_pg <- function(sql,
 #' sbfx_list_tables_pg()
 #' sbfx_list_tables_pg("boat_count")
 #' }
-sbfx_list_tables_pg <- function(schema = getOption("psql.schema", "public"),
-                                config_path = getOption("psql.config_path", NULL),
-                                config_value = getOption("psql.config_value", "default")) {
+sbfx_list_tables_pg <- function(
+  schema = getOption("psql.schema", "public"),
+  config_path = getOption("psql.config_path", NULL),
+  config_value = getOption("psql.config_value", "default")
+) {
   psql::psql_list_tables(
     schema = schema,
     config_path = config_path,
@@ -183,10 +193,12 @@ sbfx_list_tables_pg <- function(schema = getOption("psql.schema", "public"),
 #' sbfx_load_data_from_pg("capture")
 #' sbfx_load_data_from_pg("counts", "boat_count")
 #' }
-sbfx_load_data_from_pg <- function(x,
-                                   schema = getOption("psql.schema", "public"),
-                                   config_path = getOption("psql.config_path", NULL),
-                                   config_value = getOption("psql.config_value", "default")) {
+sbfx_load_data_from_pg <- function(
+  x,
+  schema = getOption("psql.schema", "public"),
+  config_path = getOption("psql.config_path", NULL),
+  config_value = getOption("psql.config_value", "default")
+) {
   psql::psql_read_table(
     tbl_name = x,
     schema = schema,
@@ -213,11 +225,13 @@ sbfx_load_data_from_pg <- function(x,
 #' sbfx_load_datas_from_pg(schema = "capture")
 #' sbfx_load_datas_from_pg(rename = toupper)
 #' }
-sbfx_load_datas_from_pg <- function(schema = getOption("psql.schema", "public"),
-                                    rename = identity,
-                                    env = parent.frame(),
-                                    config_path = getOption("psql.config_path", NULL),
-                                    config_value = getOption("psql.config_value", "default")) {
+sbfx_load_datas_from_pg <- function(
+  schema = getOption("psql.schema", "public"),
+  rename = identity,
+  env = parent.frame(),
+  config_path = getOption("psql.config_path", NULL),
+  config_value = getOption("psql.config_value", "default")
+) {
   chk::chk_s3_class(env, "environment")
   chk::chk_function(rename)
 
@@ -259,12 +273,16 @@ sbfx_load_datas_from_pg <- function(schema = getOption("psql.schema", "public"),
 #' sbfx_save_data_to_pg(outing, "creel")
 #' sbfx_save_data_to_pg(outing_new, "creel", "outing")
 #' }
-sbfx_save_data_to_pg <- function(x,
-                                 x_name = NULL,
-                                 schema = getOption("psql.schema", "public"),
-                                 config_path = getOption("psql.config_path", NULL),
-                                 config_value = getOption("psql.config_value", "default")) {
-  if (is.null(x_name)) x_name <- deparse(substitute(x))
+sbfx_save_data_to_pg <- function(
+  x,
+  x_name = NULL,
+  schema = getOption("psql.schema", "public"),
+  config_path = getOption("psql.config_path", NULL),
+  config_value = getOption("psql.config_value", "default")
+) {
+  if (is.null(x_name)) {
+    x_name <- deparse(substitute(x))
+  }
   psql::psql_add_data(
     tbl = x,
     schema = schema,
