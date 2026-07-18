@@ -41,21 +41,23 @@
 #' )
 #' }
 #' @export
-sbfx_save_aws_files <- function(bucket_name,
-                                sub = subfoldr2::sbf_get_sub(),
-                                main = subfoldr2::sbf_get_main(),
-                                data_type = NULL,
-                                year = NULL,
-                                month = NULL,
-                                day = NULL,
-                                file_name = NULL,
-                                file_extension = NULL,
-                                max_request_size = 1000,
-                                ask = getOption("sbf.ask", TRUE),
-                                silent = TRUE,
-                                aws_access_key_id = Sys.getenv("AWS_ACCESS_KEY_ID"),
-                                aws_secret_access_key = Sys.getenv("AWS_SECRET_ACCESS_KEY"),
-                                region = Sys.getenv("AWS_REGION", "ca-central-1")) {
+sbfx_save_aws_files <- function(
+  bucket_name,
+  sub = subfoldr2::sbf_get_sub(),
+  main = subfoldr2::sbf_get_main(),
+  data_type = NULL,
+  year = NULL,
+  month = NULL,
+  day = NULL,
+  file_name = NULL,
+  file_extension = NULL,
+  max_request_size = 1000,
+  ask = getOption("sbf.ask", TRUE),
+  silent = TRUE,
+  aws_access_key_id = Sys.getenv("AWS_ACCESS_KEY_ID"),
+  aws_secret_access_key = Sys.getenv("AWS_SECRET_ACCESS_KEY"),
+  region = Sys.getenv("AWS_REGION", "ca-central-1")
+) {
   rlang::check_installed("readwriteaws")
 
   file_list <- readwriteaws::rwa_list_su_files(
