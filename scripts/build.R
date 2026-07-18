@@ -1,8 +1,6 @@
 roxygen2md::roxygen2md()
-styler::style_pkg(
-  scope = "line_breaks",
-  filetype = c("R", "Rmd")
-)
+system2("air", c("format", "."))
+styler::style_pkg(filetype = c("Rmd")) # Air currently doesn't format .Rmd files
 lintr::lint_package()
 
 devtools::test()
