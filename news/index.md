@@ -1,5 +1,10 @@
 # Changelog
 
+## subfoldr2ext 0.1.0.9004 (2026-10-19)
+
+- Standardize CI (tier: unimportant) - update fledge system
+  ([\#13](https://github.com/poissonconsulting/subfoldr2ext/issues/13)).
+
 ## subfoldr2ext 0.1.0.9003 (2026-07-19)
 
 - Same as previous version.
